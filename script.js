@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Initialize EmailJS (Make sure script is included in HTML)
 document.addEventListener("DOMContentLoaded", function () {
-  emailjs.init("2hMGQoZSZ_lPqyXfktT_8"); // Your User ID
+  emailjs.init("WWVCqQyS1QwCDNMkx"); // Your User ID
 
   document.querySelector('form').addEventListener('submit', function (e) {
       e.preventDefault();

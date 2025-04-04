@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
       console.log("Sending email with params:", templateParams);
 
       // Send email using EmailJS
-      emailjs.send("service_4plpo5j", "template_lq3e7gr", templateParams)
+      emailjs.send("service_4plpo5j", "template_f6lq6xu", templateParams)
           .then(response => {
               console.log('Email sent successfully:', response);
               alert('Thank you for your feedback! Your message has been sent.');

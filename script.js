@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener("DOMContentLoaded", function () {
   emailjs.init("WWVCqQyS1QwCDNMkx"); // Your User ID
 
-  document.querySelector('form').addEventListener('submit', function (e) {
+  document.querySelector('form').addEventListener('send-btn', function (e) {
       e.preventDefault();
 
       // Get form values

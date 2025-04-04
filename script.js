@@ -36,27 +36,43 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-//javascript mail function
-document.getElementById("contact-form").addEventListener("submit", function (event) {
-    event.preventDefault();
-  
-    const btn = document.querySelector(".send-btn"); // Reference the send button
-    btn.innerHTML = "Sending..."; // Change button text to "Sending..."
-  
-    const serviceID = "service_ajvq5ti"; // Your service ID
-    const templateID = "template_klvy2ir"; // Your template ID
-  
-    // Send the form using EmailJS
-    emailjs.sendForm(serviceID, templateID, this).then(
-      () => {
-        btn.innerHTML = "Send Message"; // Reset button text after success
-        alert("Email sent successfully!"); // Success message
-        document.getElementById("contact-form").reset(); // Clear the form after sending
-      },
-      (err) => {
-        btn.innerHTML = "Send Message"; // Reset button text in case of error
-        alert("Failed to send email. Error: " + JSON.stringify(err)); // Show error message
+// Initialize EmailJS (Make sure script is included in HTML)
+document.addEventListener("DOMContentLoaded", function () {
+  emailjs.init("2hMGQoZSZ_lPqyXfktT_8"); // Your User ID
+
+  document.querySelector('form').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Get form values
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !email || !message) {
+          alert("Please fill in all fields before submitting.");
+          return;
       }
-    );
+
+      // Prepare the EmailJS parameters
+      const templateParams = {
+          user_name: name,
+          user_email: email,
+          user_message: message
+      };
+
+      // Debugging: Log to console before sending
+      console.log("Sending email with params:", templateParams);
+
+      // Send email using EmailJS
+      emailjs.send("service_4plpo5j", "template_lq3e7gr", templateParams)
+          .then(response => {
+              console.log('Email sent successfully:', response);
+              alert('Thank you for your feedback! Your message has been sent.');
+              document.querySelector('form').reset();
+          })
+          .catch(error => {
+              console.error('Email sending failed:', error);
+              alert('Oops! Something went wrong. Please check the console for errors.');
+          });
   });
-  
+});

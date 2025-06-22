@@ -2,6 +2,8 @@
 
 Welcome to my personal portfolio website! This website showcases my skills, projects, and provides information about me. The site is designed to be responsive and includes interactive elements using HTML, CSS, and JavaScript.
 
+Check out the link of the website - https://naman-dixit.github.io/Personal-porfolio-website/
+
 ## Table of Contents
 - [Home Page](#home-page)
 - [About Page](#about-page)
